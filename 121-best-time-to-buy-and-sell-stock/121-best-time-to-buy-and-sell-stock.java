@@ -12,14 +12,15 @@ class Solution {
         
         
         String currkey=Integer.toString(cd)+'_'+Boolean.toString(canBuy)+'_'+Integer.toString(transaction);
-         if(memo.containsKey(currkey))return memo.get(currkey);
+        if(memo.containsKey(currkey))return memo.get(currkey);
         
         int idle=fun(prices,cd+1,canBuy,transaction,memo);
-        
+        // int buy=0;
+        // int sell=0;
        
         if(canBuy==true)
         {
-            int buy=-prices[cd]+fun(prices,cd+1,false,transaction,memo);
+           int buy=-prices[cd]+fun(prices,cd+1,false,transaction,memo);
              memo.put(currkey, Math.max(idle,buy));
 
         }   
@@ -30,6 +31,7 @@ class Solution {
              memo.put(currkey, Math.max(idle,sell));
         }
         
+        // memo.put(currkey, Math.max(idle,Math.max(buy,sell)));
         return memo.get(currkey);
        
     }
