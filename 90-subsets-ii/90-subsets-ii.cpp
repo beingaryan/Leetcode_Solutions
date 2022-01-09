@@ -20,43 +20,13 @@ public:
             if(!val.count(ans)){
                 val.insert(ans);
                 answer.push_back(currentAnswer);
-                // ans.clear();
             }
             
             return;
             
         }
         
-        //1 2
-        //2 2
-        
-        //1 2 1 2 
-        
-//         2 1 2 1
-//         1 2 1 2 
-        
-//             1 2 1 2
-            
-//             1 2 
-//             2 2
-            
-//             1 2
-//             2 1
-            
-//             1 1
-//             2 2
-            
-//             1 1
-//             2 1
-            
-//             1 2
-//             2 1
-            
-//             2 1
-            //
-        
-        //1 2
-        //2 1
+
         
         currentAnswer.push_back(nums[idx]);
         noDuplicateSubset(nums,idx+1,answer,currentAnswer,val);
