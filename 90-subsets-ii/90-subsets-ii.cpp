@@ -25,9 +25,7 @@ public:
             return;
             
         }
-        
-
-        
+       
         currentAnswer.push_back(nums[idx]);
         noDuplicateSubset(nums,idx+1,answer,currentAnswer,val);
         currentAnswer.pop_back();
@@ -35,3 +33,4 @@ public:
         return;
     }
 };
+
