@@ -8,14 +8,14 @@ public:
         }
         
         if(open!=0){
-            // tempAns.push_back('(');
-            allParanthesis(result,open-1,close,tempAns+'(');
-            // tempAns.pop_back();
+            tempAns.push_back('(');
+            allParanthesis(result,open-1,close,tempAns);
+            tempAns.pop_back();
         }
         
         if(open!=close&&close!=0){
-            // tempAns.push_back(')');
-            allParanthesis(result,open,close-1,tempAns+')');
+            tempAns.push_back(')');
+            allParanthesis(result,open,close-1,tempAns);
             // tempAns.pop_back();
         }
         
