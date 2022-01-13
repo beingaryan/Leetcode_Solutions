@@ -44,16 +44,16 @@ public:
     }
 };
 
-int sumRootToLeaffun(TreeNode* root, int sum){
-        if(root==NULL) 
-            return 0;
-        sum = (2 * sum) + root->val;
+// int sumRootToLeaffun(TreeNode* root, int sum){
+//         if(root==NULL) 
+//             return 0;
+//         sum = (2 * sum) + root->val;
     
-        if(root->left==NULL && root->right==NULL) 
-            return sum;
-        return sumRootToLeaffun(root->left, sum) + sumRootToLeaffun(root->right, sum);
-    }
+//         if(root->left==NULL && root->right==NULL) 
+//             return sum;
+//         return sumRootToLeaffun(root->left, sum) + sumRootToLeaffun(root->right, sum);
+//     }
 
-    int sumRootToLeaf(TreeNode* root) {
-        return sumRootToLeaffun(root, 0);
-    }
+//     int sumRootToLeaf(TreeNode* root) {
+//         return sumRootToLeaffun(root, 0);
+//     }
