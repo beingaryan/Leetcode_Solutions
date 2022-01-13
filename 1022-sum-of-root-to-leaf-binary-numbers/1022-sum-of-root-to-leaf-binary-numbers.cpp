@@ -31,14 +31,14 @@ public:
         }
         
         
-        // ans.push_back(root->val);
+        ans.push_back((char)(root->val+'0'));
         // string sol=(char)(root->val+'0');
-        fun(root->left,ans+(char)(root->val+'0'),res);
-        // ans.pop_back();
+        fun(root->left,ans,res);
+        ans.pop_back();
         
-        // ans.push_back(root->val);
-        fun(root->right,ans+(char)(root->val+'0'),res);
-        // ans.pop_back();
+        ans.push_back((char)(root->val+'0'));
+        fun(root->right,ans,res);
+        ans.pop_back();
         
         return ;
     }
