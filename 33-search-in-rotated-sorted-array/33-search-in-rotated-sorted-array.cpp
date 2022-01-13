@@ -4,10 +4,11 @@ public:
         int low=0;
         int high=nums.size()-1;
         // int comparator=0;
+        int comparator=0;
         int pivot=nums[0];
         while(low<=high){
             int mid=low+(high-low)/2;
-            int comparator=nums[mid];
+            
             if(((target>=pivot)&&(nums[mid]>=pivot))||((target<pivot)&&(nums[mid]<pivot))){
                 comparator=nums[mid];
             }
@@ -28,9 +29,7 @@ public:
             else{
                 high=mid-1;
             }
-            
-            
-            
+                      
         }
         
         return -1;
