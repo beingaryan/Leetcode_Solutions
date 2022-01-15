@@ -18,8 +18,7 @@ public:
         stack<TreeNode*> s;
         if(!root)return ans;
         
-       addLeftSubTreeToStack(root,s);        
-        
+       addLeftSubTreeToStack(root,s);             
         while(!s.empty()){
            TreeNode* currentNode=s.top();
            s.pop();
