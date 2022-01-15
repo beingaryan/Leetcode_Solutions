@@ -21,20 +21,18 @@ public:
         while(!s.empty()){
             TreeNode* currentNode=s.top();
             s.pop();            
-            ans.push_back(currentNode->val);
-       
+            ans.push_back(currentNode->val); 
             
-            
-             if(currentNode->left){
+            if(currentNode->left){
             TreeNode* leftNode=currentNode->left;
             s.push(leftNode);
              }
-            
-              if(currentNode->right){
+       
+                if(currentNode->right){
             TreeNode* rightNode=currentNode->right;
             s.push(rightNode);
                 
-            }
+            }         
             
         }
         reverse(ans.begin(),ans.end());
