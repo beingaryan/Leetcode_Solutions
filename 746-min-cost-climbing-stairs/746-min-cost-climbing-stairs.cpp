@@ -3,8 +3,8 @@ public:
        unordered_map<int,int>mp;
     int minCostClimbingStairs(vector<int>& cost) {
           int a = mincost(cost,0);
-        int b = mincost(cost,1);
-        return min(a,b);
+        // int b = mincost(cost,1);
+        return min(a,mp[1]);
     }
     
      int mincost(vector<int>&cost , int curr)
