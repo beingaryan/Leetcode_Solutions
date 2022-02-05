@@ -30,11 +30,13 @@ public:
           set<string>s;
           vector<bool>visited(n,false);
           permutation(tiles,s,visited,perm,n);
-        for (auto it = s.begin(); it !=
-                             s.end(); ++it)
-            {
-        cout <<*it<<"*";
-            }
+        
+        // for (auto it = s.begin(); it !=
+        //                      s.end(); ++it)
+        //     {
+        // cout <<*it<<"*";
+            // }
+        
                 return s.size()-1;
     }
     
