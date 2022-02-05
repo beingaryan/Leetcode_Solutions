@@ -15,7 +15,8 @@ public:
     }
     
     ListNode* swapNodes(ListNode* head){
-        if(head==NULL || head->next==NULL)return head;
+        if(head==NULL || head->next==NULL)
+            return head;
         
         ListNode* firstNode=head;
         ListNode* secondNode=head->next;
