@@ -13,33 +13,95 @@ public://1 2 3 4 5
     //2
     
     ListNode* removeNthFromEnd(ListNode* head, int n) {
+
+        
         if(head==NULL)return NULL;
-     ListNode* first=head;
-     ListNode* last=head;  
-     ListNode* prev=first;
+        
+        
+    ListNode* first=head;
+            ListNode* last=head;
+            ListNode* prev=first;
+        
+        
         n--;
-           while(n--){
-               if(last->next)last=last->next;
-           }
-        while(last->next){
-            last=last->next;
-            prev=first;
-            first=first->next;
+        
+        while(n--){
+            if(last->next)last=last->next;
         }
-        prev->next=first->next;
-        if(first==head){
-           if(head->next) {head=head->next;
-                           delete first;
-                            first=NULL;
-            return head;}
+        
+         
+       
+        
+        if(last->next==NULL){
+            if(head->next){
+                head=head->next;
+                delete first;
+                first=NULL;
+                return head;
+            }
             else{
                 return NULL;
             }
+            
+        }
+        // ->next==NULL)
+        // {head=head->next;
+        // return head;}
+        while(last->next!=NULL){
+         last=last->next;
+            prev=first;
+            first=first->next;
         }
         
-        delete first;
+        prev->next=first->next;
+         delete first;
         first=NULL;
         return head;
+        
+        // return head;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+//                 if(head==NULL)return NULL;
+//      ListNode* first=head;
+//      ListNode* last=head;  
+//      ListNode* prev=first;
+//         n--;
+//            while(n--){
+//                if(last->next)last=last->next;
+//            }
+//         while(last->next){
+//             last=last->next;
+//             prev=first;
+//             first=first->next;
+//         }
+//         prev->next=first->next;
+//         if(first==head){
+//            if(head->next) {head=head->next;
+//                            delete first;
+//                             first=NULL;
+//             return head;}
+//             else{
+//                 return NULL;
+//             }
+//         }
+        
+//         delete first;
+//         first=NULL;
+//         return head;
         
         
         
