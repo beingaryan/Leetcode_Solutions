@@ -54,7 +54,9 @@ public:
             
             if(parent.empty()){
                 swap(child,parent);
-                if(parent.empty()==false)count++;
+                // if(parent.empty()==false)
+                //     count++;
+                count++;
             }
             
         }
@@ -67,7 +69,7 @@ public:
             }
         }
         
-        return count;
+        return count-1;
         
         
         
