@@ -4,6 +4,7 @@ public:
        queue<pair<int,int>>parent;//r,c
        queue<pair<int,int>>child;
         
+        vector<int>directions={1,0,-1,0,1};
         int rowSize=grid.size();
         int colSize=grid[0].size();
         
@@ -23,39 +24,24 @@ public:
             return 0;
         }
         
-        
         int count=0;
         while(parent.empty()==false){
             int r=parent.front().first;
             int c=parent.front().second;
             parent.pop();
             
-            // cout<<" r "<<r<<" c "<<c<<endl;
-            
-            if(r+1<rowSize&&grid[r+1][c]==1&&grid[r+1][c]!=-1){
-                grid[r+1][c]=-1;
-                child.push({r+1,c});
-            }
-            
-            if(r-1>=0&&grid[r-1][c]==1&&grid[r-1][c]!=-1){
-                grid[r-1][c]=-1;
-                child.push({r-1,c});
-            }
-            
-             if(c+1<colSize&&grid[r][c+1]==1&&grid[r][c+1]!=-1){
-                grid[r][c+1]=-1;
-                child.push({r,c+1});
-            }
-            
-             if(c-1>=0&&grid[r][c-1]==1&&grid[r][c-1]!=-1){
-                grid[r][c-1]=-1;
-                child.push({r,c-1});
-            }
-            
+            for(int i=0;i<4;i++){
+                int newRow=r+directions[i];
+                int newCol=c+directions[i+1];
+                
+                if(newRow>=0 && newRow<rowSize && newCol>=0 && newCol<colSize && grid[newRow][newCol]==1 && grid[newRow][newCol]!=-1){
+                     grid[newRow][newCol]=-1;
+                     child.push({newRow,newCol});
+                }
+                
+            } 
             if(parent.empty()){
                 swap(child,parent);
-                // if(parent.empty()==false)
-                //     count++;
                 count++;
             }
             
@@ -74,4 +60,31 @@ public:
         
         
     }
+
+
+
+      // cout<<" r "<<r<<" c "<<c<<endl;
+            
+//             if(r+1<rowSize&&grid[r+1][c]==1&&grid[r+1][c]!=-1){
+//                 grid[r+1][c]=-1;
+//                 child.push({r+1,c});
+//             }
+            
+//             if(r-1>=0&&grid[r-1][c]==1&&grid[r-1][c]!=-1){
+//                 grid[r-1][c]=-1;
+//                 child.push({r-1,c});
+//             }
+            
+//              if(c+1<colSize&&grid[r][c+1]==1&&grid[r][c+1]!=-1){
+//                 grid[r][c+1]=-1;
+//                 child.push({r,c+1});
+//             }
+            
+//              if(c-1>=0&&grid[r][c-1]==1&&grid[r][c-1]!=-1){
+//                 grid[r][c-1]=-1;
+//                 child.push({r,c-1});
+//             }
+           
+                // if(parent.empty()==false)
+                //     count++;
 };
