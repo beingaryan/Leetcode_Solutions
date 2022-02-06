@@ -12,10 +12,11 @@ class Solution {
 public:
     ListNode* sortList(ListNode* head) {
         
-         mergeSort(head);//,&firstHead,&secondHead);
+         mergeSort(head);
          return head;
     }
     
+        //,&firstHead,&secondHead);
      void mergeSort(ListNode*&head){
          // ListNode* headNew=*head;
          ListNode* firstHead; 
