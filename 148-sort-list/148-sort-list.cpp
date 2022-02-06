@@ -12,22 +12,22 @@ class Solution {
 public:
     ListNode* sortList(ListNode* head) {
         
-         mergeSort(&head);//,&firstHead,&secondHead);
+         mergeSort(head);//,&firstHead,&secondHead);
          return head;
     }
     
-     void mergeSort(ListNode** head){
-         ListNode* headNew=*head;
+     void mergeSort(ListNode*&head){
+         // ListNode* headNew=*head;
          ListNode* firstHead; 
          ListNode* secondHead;
          
-         if(headNew==NULL||headNew->next==NULL)return;// NULL;
+         if(head==NULL||head->next==NULL)return;// NULL;
          
-             divideInTwoList(headNew,&firstHead,&secondHead);
-             mergeSort(&firstHead);
-             mergeSort(&secondHead);
-             *head=merge(firstHead,secondHead);
-         // return *head;
+             divideInTwoList(head,firstHead,secondHead);
+             mergeSort(firstHead);
+             mergeSort(secondHead);
+             head=merge(firstHead,secondHead);
+        
      }
     
     ListNode* merge(ListNode* firstHead, ListNode* secondHead)
@@ -49,7 +49,7 @@ public:
         
     }
     
-    void divideInTwoList(ListNode*head, ListNode**firstHead, ListNode**secondHead){
+    void divideInTwoList(ListNode*head, ListNode*&firstHead, ListNode*&secondHead){
         ListNode* fast=head;
         ListNode* slow=head;
         //1 2 4 5 3 0
@@ -58,8 +58,8 @@ public:
             slow=slow->next;
         }
         
-        *secondHead=slow->next;
+        secondHead=slow->next;
         slow->next=NULL;
-        *firstHead=head;
+        firstHead=head;
     }
 };
