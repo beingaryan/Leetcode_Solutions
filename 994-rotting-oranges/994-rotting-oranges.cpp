@@ -5,6 +5,7 @@ public:
        queue<pair<int,int>>child;
         
         vector<int>directions={1,0,-1,0,1};
+        
         int rowSize=grid.size();
         int colSize=grid[0].size();
         
@@ -34,8 +35,8 @@ public:
                 int newRow=r+directions[i];
                 int newCol=c+directions[i+1];
                 
-                if(newRow>=0 && newRow<rowSize && newCol>=0 && newCol<colSize && grid[newRow][newCol]==1 && grid[newRow][newCol]!=-1){
-                     grid[newRow][newCol]=-1;
+                if(newRow>=0 && newRow<rowSize && newCol>=0 && newCol<colSize && grid[newRow][newCol]==1){// && grid[newRow][newCol]!=-1){
+                     grid[newRow][newCol]=2;
                      child.push({newRow,newCol});
                 }
                 
