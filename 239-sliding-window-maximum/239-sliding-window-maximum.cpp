@@ -16,7 +16,7 @@ public:
             }
            ans.push_back(pq.top().first);
         }
-        if(ans.empty()&&k==n)ans.push_back(pq.top().first);
+        if(ans.empty())ans.push_back(pq.top().first);
         return ans;
     }
 };
