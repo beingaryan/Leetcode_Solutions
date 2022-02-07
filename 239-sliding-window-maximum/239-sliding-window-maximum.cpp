@@ -9,6 +9,7 @@ public:
             if(i==k)ans.push_back(pq.top().first);
             pq.push({nums[i],i});
          
+            if(k==n&&i==n-1)ans.push_back(pq.top().first);
             if(i<k)continue;
         
             while(pq.top().second<i-k+1){
@@ -16,7 +17,7 @@ public:
             }
            ans.push_back(pq.top().first);
         }
-        if(ans.empty())ans.push_back(pq.top().first);
+        
         return ans;
     }
 };
