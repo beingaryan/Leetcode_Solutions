@@ -7,8 +7,8 @@ class Solution {
   public:
     // Function to detect cycle in a directed graph.
     bool isCyclic(int V, vector<int> adj[]) {
-        unordered_map<int,int>visited;
-        unordered_map<int,int>recStack;
+        unordered_set<int>visited;
+        unordered_set<int>recStack;
         
         for(int i=0;i<V;i++){
             if(visited.find(i)==visited.end()){
@@ -20,9 +20,9 @@ class Solution {
         return false;
     }
     
-    bool dfs(unordered_map<int,int>&visited,unordered_map<int,int>&recStack,int currVertex,vector<int>adj[]){
-        visited.insert({currVertex,0});
-        recStack.insert({currVertex,0});
+    bool dfs(unordered_set<int>&visited,unordered_set<int>&recStack,int currVertex,vector<int>adj[]){
+        visited.insert(currVertex);
+        recStack.insert(currVertex);
         
         for(auto neighbours:adj[currVertex]){
             if(visited.find(neighbours)==visited.end()){
