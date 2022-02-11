@@ -18,7 +18,7 @@ public:
     
     bool fun(vector<vector<char>>& board,string&word,string tempWord,int k,int currRow, int currCol,int rowSize, int colSize)
     {
-    // cout<<tempWord<<"*"<<endl;
+
         if(word==tempWord){
             // cout<<tempWord<<"*"<<endl;
             return true;}
@@ -37,28 +37,28 @@ public:
         board[currRow][currCol]=c;
           
         
-        char d=board[currRow][currCol];
+        c=board[currRow][currCol];
         board[currRow][currCol]='*';
-        tempWord.push_back(d);
+        tempWord.push_back(c);
         bool left=fun(board,word,tempWord,k+1,currRow,currCol-1,rowSize,colSize);
         tempWord.pop_back();
-         board[currRow][currCol]=d;
+         board[currRow][currCol]=c;
         
         
-      char e=board[currRow][currCol];
+      c=board[currRow][currCol];
         board[currRow][currCol]='*';
-        tempWord.push_back(e);
+        tempWord.push_back(c);
         bool down=fun(board,word,tempWord,k+1,currRow+1,currCol,rowSize,colSize);
         tempWord.pop_back();
-       board[currRow][currCol]=e;
+       board[currRow][currCol]=c;
         
         
-         char f=board[currRow][currCol];
+         c=board[currRow][currCol];
         board[currRow][currCol]='*';
-        tempWord.push_back(f);
+        tempWord.push_back(c);
         bool up=fun(board,word,tempWord,k+1,currRow-1,currCol,rowSize,colSize);
         tempWord.pop_back();
-       board[currRow][currCol]=f;
+       board[currRow][currCol]=c;
         
         
         return right||left||down||up;
