@@ -32,35 +32,37 @@ public:
         char c=board[currRow][currCol];
         board[currRow][currCol]='*';
         tempWord.push_back(c);
-        bool right=fun(board,word,tempWord,k+1,currRow,currCol+1,rowSize,colSize);
+        bool right=fun(board,word,tempWord,k+1,currRow,currCol+1,rowSize,colSize)||fun(board,word,tempWord,k+1,currRow,currCol-1,rowSize,colSize)||fun(board,word,tempWord,k+1,currRow+1,currCol,rowSize,colSize)||fun(board,word,tempWord,k+1,currRow-1,currCol,rowSize,colSize);
         tempWord.pop_back();
         board[currRow][currCol]=c;
           
         
-        c=board[currRow][currCol];
-        board[currRow][currCol]='*';
-        tempWord.push_back(c);
-        bool left=fun(board,word,tempWord,k+1,currRow,currCol-1,rowSize,colSize);
-        tempWord.pop_back();
-         board[currRow][currCol]=c;
+//         c=board[currRow][currCol];
+//         board[currRow][currCol]='*';
+//         tempWord.push_back(c);
+//         bool left=fun(board,word,tempWord,k+1,currRow,currCol-1,rowSize,colSize);
+//         tempWord.pop_back();
+//          board[currRow][currCol]=c;
         
         
-      c=board[currRow][currCol];
-        board[currRow][currCol]='*';
-        tempWord.push_back(c);
-        bool down=fun(board,word,tempWord,k+1,currRow+1,currCol,rowSize,colSize);
-        tempWord.pop_back();
-       board[currRow][currCol]=c;
+//       c=board[currRow][currCol];
+//         board[currRow][currCol]='*';
+//         tempWord.push_back(c);
+//         bool down=fun(board,word,tempWord,k+1,currRow+1,currCol,rowSize,colSize);
+//         tempWord.pop_back();
+//        board[currRow][currCol]=c;
         
         
-         c=board[currRow][currCol];
-        board[currRow][currCol]='*';
-        tempWord.push_back(c);
-        bool up=fun(board,word,tempWord,k+1,currRow-1,currCol,rowSize,colSize);
-        tempWord.pop_back();
-       board[currRow][currCol]=c;
+//          c=board[currRow][currCol];
+//         board[currRow][currCol]='*';
+//         tempWord.push_back(c);
+//         bool up=fun(board,word,tempWord,k+1,currRow-1,currCol,rowSize,colSize);
+//         tempWord.pop_back();
+//        board[currRow][currCol]=c;
         
         
-        return right||left||down||up;
+         // right||left||down||up;
+    return right;
     }
+    
 };
