@@ -9,7 +9,7 @@ public:
                 if(grid[i][j]==1){
                     
                     maxAreaSol=max(maxAreaSol,maxArea(grid,i,j,m,n));
-                    cout<<maxAreaSol<<" i "<<i<<" j "<<j<<endl;
+                    // cout<<maxAreaSol<<" i "<<i<<" j "<<j<<endl;
                 }
             }
         }
