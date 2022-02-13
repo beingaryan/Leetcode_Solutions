@@ -16,12 +16,11 @@ public:
           mp[s[i]]++;       
           }
          
-     else {//(mp.find(s[i])==mp.end()){
+     else {
          mp[s[i]]=1;
          distinct++;
      }
-          // mp[s[i]]++;
-//       release<=i&&distinct
+ 
           while(distinct>k){
               mp[s[release]]--;
             
