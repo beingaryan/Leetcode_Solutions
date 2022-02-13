@@ -14,12 +14,7 @@ public:
         int n2=nums2.size();
         int endIndex=k;
         
-        // if(k<n1||k<n2)
-        //     endIndex=k;
-        // if(n1!=n2)
-        //     endIndex
-        // if(k>n1&&k<n2||k>n2&&k<n1||k>n1&&k>n2&&n1!=n2)
-        //     endIndex=max(n1,n2);
+     
         set<pair<int,int>>answerSet;
         for(int c=0;c<k;c++){
            pair<int,pair<int,int>>temp=pq.top();
