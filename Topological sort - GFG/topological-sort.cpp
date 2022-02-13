@@ -10,15 +10,14 @@ class Solution
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
 	    unordered_set<int>visited;
-	    
-	    unordered_set<int>recStack;
+	   
 	    vector<int>vec;
 	    for(int i=0;i<V;i++)
 	    {
 	        
 	        if(visited.find(i)==visited.end())
 	        {
-	        dfs(visited,recStack,vec,i,adj);  
+	        dfs(visited,vec,i,adj);  
 	        }
 	    }
 	    
@@ -29,18 +28,18 @@ class Solution
 	    
 	}
 	
-	void dfs(unordered_set<int>&visited,unordered_set<int>&recStack,vector<int>&vec,int vertex,vector<int> adj[]){
+	void dfs(unordered_set<int>&visited,vector<int>&vec,int vertex,vector<int> adj[]){
 	    visited.insert(vertex);
-	    recStack.insert(vertex);
+	    
 	    
 	    for(auto neighbour:adj[vertex]){
 	        if(visited.find(neighbour)==visited.end()){//not present
-	            dfs(visited,recStack,vec,neighbour,adj);
+	            dfs(visited,vec,neighbour,adj);
 	        }
 	    }
 	    
 	    vec.push_back(vertex);
-	    recStack.erase(vertex);
+	  
 	 return;   
 	}
 };
