@@ -11,7 +11,7 @@ public:
             int toCheck=(60-(curr%60));
             
             while(toCheck<=maxElement){
-                // if()
+                
                 if(mp.find(toCheck)!=mp.end())
                 {
                     total+=mp[toCheck];
