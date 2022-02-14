@@ -50,10 +50,8 @@ public:
                swap(parent,child);
            }
            
-       }
-       
+       }       
         return root;
-        
-        
+
     }
 };
