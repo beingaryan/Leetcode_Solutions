@@ -27,25 +27,31 @@ public:
         
         int count=0;
         while(parent.empty()==false){
+           
+            int sz=parent.size();
+            
+            while(sz--){
+                
             int r=parent.front().first;
             int c=parent.front().second;
             parent.pop();
-            
+                
             for(int i=0;i<4;i++){
                 int newRow=r+directions[i];
                 int newCol=c+directions[i+1];
                 
                 if(newRow>=0 && newRow<rowSize && newCol>=0 && newCol<colSize && grid[newRow][newCol]==1){// && grid[newRow][newCol]!=-1){
                      grid[newRow][newCol]=2;
-                     child.push({newRow,newCol});
+                     parent.push({newRow,newCol});
                 }
                 
             } 
-            if(parent.empty()){
-                swap(child,parent);
+            if(!sz){
+                // swap(child,parent);
                 count++;
             }
             
+        }
         }
         
         for(int i=0;i<rowSize;i++){
