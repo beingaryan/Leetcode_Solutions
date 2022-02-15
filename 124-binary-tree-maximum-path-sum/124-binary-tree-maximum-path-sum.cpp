@@ -41,7 +41,14 @@ public:
         int left=maxVal(root->left,maxV);
         int right=maxVal(root->right,maxV);
         
-        int currSum=max(root->val,max(root->val+left,root->val+right));//
+        int currSum=max(root->val,max(root->val+left,root->val+right));//Check for root and root+left, root+right
+        //Didnt added in currSum root+left+right as it will return all the values to upper call as we are returing currSum
+        //All value means left+right+root. But for maxPathSum, we don't need root value to be added and return to upper calls.
+        //Only it should be updated into global maximum
+        //So, update in Global Maximum into maxV
+        //TestCase:[5,4,8,11,null,13,4,7,2,null,null,null,1]
+        //Expected:48
+        //If all added, it will return 55(Sum of all nodes(left+right+root))
         
         maxV=max(maxV,max(currSum,root->val+left+right));
         
