@@ -8,26 +8,30 @@ class Solution {
     // Function to detect cycle in an undirected graph.
     bool isCycle(int V, vector<int> adj[]) {
         vector<bool>visited(V+1,false);
+        vector<bool>recStack(V+1,false);
         
         for(int i=0;i<V;i++){
             if(visited[i]==false){
-                if(dfs(i,adj,visited,-1))
+                if(dfs(i,adj,recStack,visited,-1))
                 return true;
             }
         }
         return false;
     }
     
-    bool dfs(int vertex,vector<int> adj[],vector<bool>&visited,int parent ){
+    bool dfs(int vertex,vector<int> adj[],vector<bool>&recStack,vector<bool>&visited,int parent ){
         visited[vertex]=true;
+        recStack[vertex]=true;
         
         for(auto neighbours: adj[vertex]){
             if(visited[neighbours]==false){
-                if(dfs(neighbours,adj,visited,vertex))
+                if(dfs(neighbours,adj,recStack,visited,vertex))
                 return true;
-            }else if(parent!=neighbours)
+            }else if(recStack[vertex]==true&&parent!=neighbours)
             return true;
         }
+        recStack[vertex]=false;
+        
         return false;
     }
 };
