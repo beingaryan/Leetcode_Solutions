@@ -10,20 +10,22 @@ class Solution {
         priority_queue<int,vector<int>, greater<int> >pq;
         vector<int>v;
         for(int i=0;i<n;i++){
-            if(i<k)
-            pq.push(arr[i]);
-            
-            if(i==k-1){
-            v.push_back(pq.top());
-            continue;
-            }
-            
-            
+    
             if(i<k-1)
             {
+             pq.push(arr[i]);   
             v.push_back(-1);
             continue;
             }
+            
+            if(i==k-1){
+            pq.push(arr[i]); 
+            v.push_back(pq.top());
+            continue;
+            }
+
+
+            // pq.push(arr[i]);
             
            if(arr[i]>pq.top()){
              
