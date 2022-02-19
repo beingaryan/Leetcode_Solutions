@@ -2,7 +2,7 @@ class Solution {
 public:
     int orangesRotting(vector<vector<int>>& grid) {
        queue<pair<int,int>>parent;//r,c
-       queue<pair<int,int>>child;
+       // queue<pair<int,int>>child;
         
         vector<int>directions={1,0,-1,0,1};
         
@@ -42,16 +42,18 @@ public:
                 
                 if(newRow>=0 && newRow<rowSize && newCol>=0 && newCol<colSize && grid[newRow][newCol]==1){// && grid[newRow][newCol]!=-1){
                      grid[newRow][newCol]=2;
+                    // child.push({newRow,newCol});
                      parent.push({newRow,newCol});
                 }
                 
             } 
-            if(!sz){
+            // if(!sz){//!parent.empty(){
                 // swap(child,parent);
-                count++;
-            }
+               
+            // }
             
         }
+             count++;
         }
         
         for(int i=0;i<rowSize;i++){
@@ -68,7 +70,7 @@ public:
         
     }
 
-
+};
 
       // cout<<" r "<<r<<" c "<<c<<endl;
             
@@ -93,5 +95,5 @@ public:
 //             }
            
                 // if(parent.empty()==false)
+
                 //     count++;
-};
