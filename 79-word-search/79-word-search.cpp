@@ -31,12 +31,12 @@ public:
         // cout<<tempWord<<"*"<<endl;
         char c=board[currRow][currCol];
         board[currRow][currCol]='*';
-        tempWord.push_back(c);
-        bool right= fun(board,word,tempWord,k+1,currRow,currCol+1,rowSize,colSize)||
-                    fun(board,word,tempWord,k+1,currRow,currCol-1,rowSize,colSize)||
-                    fun(board,word,tempWord,k+1,currRow+1,currCol,rowSize,colSize)||
-                    fun(board,word,tempWord,k+1,currRow-1,currCol,rowSize,colSize);
-        tempWord.pop_back();
+        // tempWord.push_back(c);
+        bool right= fun(board,word,tempWord+c,k+1,currRow,currCol+1,rowSize,colSize)||
+                    fun(board,word,tempWord+c,k+1,currRow,currCol-1,rowSize,colSize)||
+                    fun(board,word,tempWord+c,k+1,currRow+1,currCol,rowSize,colSize)||
+                    fun(board,word,tempWord+c,k+1,currRow-1,currCol,rowSize,colSize);
+        // tempWord.pop_back();
         board[currRow][currCol]=c;
           
         
