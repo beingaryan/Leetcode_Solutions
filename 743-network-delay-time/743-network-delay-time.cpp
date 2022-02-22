@@ -7,8 +7,8 @@ public:
             adj[times[i][0]].push_back({times[i][1],times[i][2]});//source,target,weight
         }
         
-         bool visit[n+1];
-        memset(visit, false, sizeof(visit));
+        //  bool visit[n+1];
+        // memset(visit, false, sizeof(visit));
         vector<int>distance(n+1,INT_MAX);
         
         distance[k]=0;
@@ -25,7 +25,7 @@ public:
             int newV=neighbours.first;
             int oldToNewDist=neighbours.second;
             
-            if(visit[newV]==false&&distance[newV]>distance[oldV]+oldToNewDist){
+            if(distance[newV]>distance[oldV]+oldToNewDist){
                 distance[newV]=distance[oldV]+oldToNewDist;
                 pq.push({distance[newV],newV});
             }
