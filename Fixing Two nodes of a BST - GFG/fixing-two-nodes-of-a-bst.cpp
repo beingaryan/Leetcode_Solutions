@@ -114,28 +114,27 @@ struct Node
 class Solution {
   public:
   int c=0;
-  int flag1=0;
-  int flag2=0;
+  
   
     void correctBST( struct Node* root )
     {
         vector<int>vec;
         vector<int>wrong;
-        inorder(root,vec,wrong);
+        // int val1,val2
+        int inorderVal=INT_MIN;
+        int wrong1,wrong2;
         
-        // cout<<endl<<wrong[0]<<" "<<wrong[1]<<endl;
-        
-        correctTree(root,wrong[0],wrong[1]);
-        // vector<int>tempv;
-        // vector<int>tempw;
-        // inorder(root,tempv,tempw);
+        inorder(root,inorderVal,wrong1,wrong2);
+        // cout<<wrong1<<" "<<wrong2;
+        correctTree(root,wrong1,wrong2);
+
     }
     
     void correctTree( struct Node* &root, int val1, int val2){
         if(!root)return;
        
        stack<Node*> s;
-        // if(!root)return ans;
+        
         s.push(root);
         
         while(!s.empty()){
@@ -148,7 +147,7 @@ class Solution {
             else if(currentNode->data==val2)
             currentNode->data=val1;
             
-            // ans.push_back(currentNode->val);
+          
        
             if(currentNode->right){
             Node* rightNode=currentNode->right;
@@ -165,51 +164,35 @@ class Solution {
         } 
     }
        
-        // if(root->data==val1)
-        // {
-        // root->data=val2;
-        // // flag1++;
-        // return;
-            
-        // }
-        
-        // if(flag2==0&&root->data==val2){
-        //     root->data=val1;
-        //     // flag2++;
-        //     return;
-        // }
-        
-        // correctTree(root->left,val1,val2);
-        // correctTree(root->right,val1,val2);
-        
-    // }
     
     
-    void inorder(struct Node* root, vector<int>&vec,vector<int>&wrong)
+    void inorder(struct Node* root, int &inorderVal,int &wrong1, int &wrong2)
     {
     if(!root)return;
     
-    inorder(root->left,vec,wrong);
+    inorder(root->left,inorderVal,wrong1,wrong2);
     
-    if(vec.size()>0&&vec.back()>root->data){
+    if(inorderVal>root->data){
         c++;
         if(c==1)
         {
-            wrong.push_back(vec.back());
-        wrong.push_back(root->data);
+     
+        wrong1=inorderVal;
+        wrong2=(root->data);
+        
+            
         }
         if(c==2)
         {
-            wrong.pop_back();
-            wrong.push_back(root->data);
+        //       cout<<"InorderVal"<<" "<<inorderVal<<endl;
+        // cout<<"root data "<<root->data<<endl;
+               wrong2=(root->data);
+        
+
         }
     }
-    // cout<<root->data<<" ";
-    vec.push_back(root->data);
-    inorder(root->right,vec,wrong);
-        
-        
-        
+    inorderVal=root->data;
+    inorder(root->right,inorderVal,wrong1,wrong2);   
     }
 };
 
