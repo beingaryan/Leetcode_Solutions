@@ -22,18 +22,18 @@ class Solution
             vis[i]=false;
         }
         while(!pq.empty()){
-            int vertex=pq.top().second;
+            int u=pq.top().second;
             pq.pop();
-            vis[vertex]=true;
-            for(auto neighbours:adj[vertex]){
+            vis[u]=true;
+            for(auto neighbours:adj[u]){
                 // cout<<neighbours;
-                int newVertex=neighbours[0];
-                int oldToNewVertexDist=neighbours[1];
+                int v=neighbours[0];
+                int wt=neighbours[1];
                 
-                if(vis[newVertex]==false&&distance[newVertex]>distance[vertex]+oldToNewVertexDist)
+                if(vis[v]==false&&distance[v]>distance[u]+wt)
                 {
-                    distance[newVertex]=distance[vertex]+oldToNewVertexDist;
-                    pq.push({distance[newVertex],newVertex});
+                    distance[v]=distance[u]+wt;
+                    pq.push({distance[v],v});
                 }
             }
         }
