@@ -120,78 +120,77 @@ class Solution {
     {
         vector<int>vec;
         vector<int>wrong;
-        // int val1,val2
-        int inorderVal=INT_MIN;
-        int wrong1,wrong2;
-        
+        struct Node* inorderVal=new Node(INT_MIN);
+        // int wrong1,wrong2;
+        struct Node* wrong1;
+        struct Node* wrong2;
         inorder(root,inorderVal,wrong1,wrong2);
-        // cout<<wrong1<<" "<<wrong2;
-        correctTree(root,wrong1,wrong2);
+        
+        int temp=wrong1->data;
+        wrong1->data=wrong2->data;
+        wrong2->data=temp;
+       
+        // correctTree(root,wrong1,wrong2);
 
     }
     
-    void correctTree( struct Node* &root, int val1, int val2){
-        if(!root)return;
+    // void correctTree( struct Node* &root, int val1, int val2){
+    //     if(!root)return;
        
-       stack<Node*> s;
+    //   stack<Node*> s;
         
-        s.push(root);
+    //     s.push(root);
         
-        while(!s.empty()){
-            Node* currentNode=s.top();
-            s.pop(); 
+    //     while(!s.empty()){
+    //         Node* currentNode=s.top();
+    //         s.pop(); 
             
-            if(currentNode->data==val1)
-            currentNode->data=val2;
+    //         if(currentNode->data==val1)
+    //         currentNode->data=val2;
             
-            else if(currentNode->data==val2)
-            currentNode->data=val1;
+    //         else if(currentNode->data==val2)
+    //         currentNode->data=val1;
             
           
        
-            if(currentNode->right){
-            Node* rightNode=currentNode->right;
-            s.push(rightNode);
+    //         if(currentNode->right){
+    //         Node* rightNode=currentNode->right;
+    //         s.push(rightNode);
                 
-            }
+    //         }
             
             
-             if(currentNode->left){
-            Node* leftNode=currentNode->left;
-            s.push(leftNode);
-             }
+    //          if(currentNode->left){
+    //         Node* leftNode=currentNode->left;
+    //         s.push(leftNode);
+    //          }
             
-        } 
-    }
+    //     } 
+    // }
        
     
     
-    void inorder(struct Node* root, int &inorderVal,int &wrong1, int &wrong2)
+    void inorder(struct Node* root, struct Node* &inorderVal,struct Node* &wrong1, struct Node* &wrong2)
     {
     if(!root)return;
     
     inorder(root->left,inorderVal,wrong1,wrong2);
     
-    if(inorderVal>root->data){
+    if(inorderVal->data>root->data){
         c++;
         if(c==1)
         {
      
         wrong1=inorderVal;
-        wrong2=(root->data);
-        
-            
+        wrong2=root;
         }
         if(c==2)
         {
-        //       cout<<"InorderVal"<<" "<<inorderVal<<endl;
-        // cout<<"root data "<<root->data<<endl;
-               wrong2=(root->data);
+               wrong2=root;
         
-
         }
     }
-    inorderVal=root->data;
+    inorderVal=root;
     inorder(root->right,inorderVal,wrong1,wrong2);   
     }
 };
