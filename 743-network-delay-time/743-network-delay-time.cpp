@@ -1,7 +1,7 @@
 class Solution {
 public:
     int networkDelayTime(vector<vector<int>>& times, int n, int k) {
-        vector<pair<int,int>>adj[n+1];
+        vector<vector<pair<int,int>>>adj(n+1);
         
         for(int i=0;i<times.size();i++){
             adj[times[i][0]].push_back({times[i][1],times[i][2]});//source,target,weight
