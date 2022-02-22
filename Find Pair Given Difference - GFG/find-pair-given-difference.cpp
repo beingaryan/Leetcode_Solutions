@@ -35,9 +35,7 @@ bool findPair(int nums[], int size, int k){
             if(mp.find((k+nums[i]))!=mp.end())
             {
                 return true;
-                //  v.push_back(mp[k-nums[i]]);
-                // v.push_back(i);
-                // return v;
+               
             }
             else if(mp.find((nums[i]-k))!=mp.end())
             return true;
