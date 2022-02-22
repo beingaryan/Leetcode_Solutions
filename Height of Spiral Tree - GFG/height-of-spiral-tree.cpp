@@ -155,8 +155,8 @@ int findTreeHeight(Node* root)
 	
 	if(isLeaf(root))return 1;
 	
-	int lh=1+findTreeHeight(root->left);
-	int rh=1+findTreeHeight(root->right);
+	int lh=findTreeHeight(root->left);
+	int rh=findTreeHeight(root->right);
 	
-	return max(lh,rh);
+	return 1+max(lh,rh);
 }
