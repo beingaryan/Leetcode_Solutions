@@ -16,16 +16,21 @@ class Solution
         vector<int>distance(V+1,INT_MAX);
         pq.push({0,S});
         distance[S]=0;
+        bool vis[V];
+         for(int i=0;i<V;i++)
+        {
+            vis[i]=false;
+        }
         while(!pq.empty()){
             int vertex=pq.top().second;
             pq.pop();
-            
+            vis[vertex]=true;
             for(auto neighbours:adj[vertex]){
                 // cout<<neighbours;
                 int newVertex=neighbours[0];
                 int oldToNewVertexDist=neighbours[1];
                 
-                if(distance[newVertex]>distance[vertex]+oldToNewVertexDist)
+                if(vis[newVertex]==false&&distance[newVertex]>distance[vertex]+oldToNewVertexDist)
                 {
                     distance[newVertex]=distance[vertex]+oldToNewVertexDist;
                     pq.push({distance[newVertex],newVertex});
