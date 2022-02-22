@@ -11,7 +11,6 @@ class Solution {
   public:
 	void shortest_distance(vector<vector<int>>&matrix){
 	    int V=matrix.size();
-	    vector<vector<int>>costs(V,vector<int>(V,-1));
 	    for(int i=0;i<V;i++){
 	        for(int j=0;j<V;j++){
 	            if(matrix[i][j]==-1)
