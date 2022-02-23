@@ -14,8 +14,8 @@ int path(int N,int curr_row ,int curr_col, vector<vector<int>> &Matrix,vector<ve
     if(curr_row>=N || curr_col>=N || curr_col<0 || curr_row<0 ) return 0;
     // if(x<0 || y<0)
     //     return -1000001;
-        if(curr_row>=N)
-        return 0;//Matrix[curr_row][curr_col];
+        if(curr_row==N-1)
+        return Matrix[curr_row][curr_col];//Matrix[curr_row][curr_col];
         if(vec[curr_row][curr_col] != -1)
         return vec[curr_row][curr_col];
         int d = Matrix[curr_row][curr_col] + path(N,curr_row+1,curr_col,Matrix,vec);
