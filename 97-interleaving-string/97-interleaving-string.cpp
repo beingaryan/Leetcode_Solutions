@@ -1,7 +1,7 @@
 class Solution {
 public:
-    bool isInterleave(string s1, string s2, string s3) {
-     
+    bool isInterleave(string s1, string s2, string s3) 
+    {
         int s1len=s1.size();
         int s2len=s2.size();
         int s3len=s3.size();
