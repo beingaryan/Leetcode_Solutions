@@ -20,7 +20,7 @@ public:
             else{
                 if(target>=pivot)
                     comparator=INT_MAX;
-                else if(target<=pivot)
+                else if(target<pivot)
                     comparator=INT_MIN;
             }
             
