@@ -6,38 +6,84 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in a directed graph.
+        
+  
     bool isCyclic(int V, vector<int> adj[]) {
-        unordered_set<int>visited;
-        unordered_set<int>recStack;
-        
-        for(int i=0;i<V;i++){
-            if(visited.find(i)==visited.end()){
-                if(dfs(visited,recStack,i,adj))
-                return true;
-            }
+    unordered_set<int>visited;
+    unordered_set<int>recStack;
+    
+    for(int i=0;i<V;i++){
+        if(visited.find(i)==visited.end()){
+            if(dfs(i,visited,recStack,adj))
+            return true;
         }
+    }
+        return false;
+    }
+
+    
+      bool dfs(int vertex,unordered_set<int>&visited,unordered_set<int>&recStack,vector<int>adj[]){
+        visited.insert(vertex);
+        recStack.insert(vertex);
         
+        for(auto neighbours:adj[vertex]){
+            if(visited.find(neighbours)==visited.end()){
+                if(dfs(neighbours,visited,recStack,adj))
+                return true;
+            }else if(recStack.find(neighbours)!=recStack.end())
+            return true;
+        }
+        recStack.erase(vertex);
         return false;
     }
     
-    bool dfs(unordered_set<int>&visited,unordered_set<int>&recStack,int currVertex,vector<int>adj[]){
-        visited.insert(currVertex);
-        recStack.insert(currVertex);
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //     unordered_set<int>visited;
+    //     unordered_set<int>recStack;
         
-        for(auto neighbours:adj[currVertex]){
-            if(visited.find(neighbours)==visited.end()){
-                if(dfs(visited,recStack,neighbours,adj))
-                return true;
-            }
-            else if(recStack.find(neighbours)!=recStack.end()){
-                return true;
-            }
-            }
-            // s.find(key)
-            // visited.erase(currVertex);
-            recStack.erase(currVertex);
-            return false;
-        }
+    //     for(int i=0;i<V;i++){
+    //         if(visited.find(i)==visited.end()){
+    //             if(dfs(visited,recStack,i,adj))
+    //             return true;
+    //         }
+    //     }
+        
+    //     return false;
+    // }
+    
+    // bool dfs(unordered_set<int>&visited,unordered_set<int>&recStack,int currVertex,vector<int>adj[]){
+    //     visited.insert(currVertex);
+    //     recStack.insert(currVertex);
+        
+    //     for(auto neighbours:adj[currVertex]){
+    //         if(visited.find(neighbours)==visited.end()){
+    //             if(dfs(visited,recStack,neighbours,adj))
+    //             return true;
+    //         }
+    //         else if(recStack.find(neighbours)!=recStack.end()){
+    //             return true;
+    //         }
+    //         }
+    //         // s.find(key)
+    //         // visited.erase(currVertex);
+    //         recStack.erase(currVertex);
+    //         return false;
+    //     }
     
     
 };
