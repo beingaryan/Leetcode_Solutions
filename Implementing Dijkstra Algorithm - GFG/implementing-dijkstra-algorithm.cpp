@@ -13,32 +13,59 @@ class Solution
         // Code here
         priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
         
+        vector<bool>visited(V+1,false);
         vector<int>distance(V+1,INT_MAX);
-        pq.push({0,S});
+        
         distance[S]=0;
-        bool vis[V];
-         for(int i=0;i<V;i++)
+        
+        pq.push({0,S});
+        
+        while(!pq.empty())
         {
-            vis[i]=false;
-        }
-        while(!pq.empty()){
             int u=pq.top().second;
+            // int wt=pq.top().first;
             pq.pop();
-            vis[u]=true;
+            visited[u]=true;
+            
             for(auto neighbours:adj[u]){
-                // cout<<neighbours;
                 int v=neighbours[0];
                 int wt=neighbours[1];
                 
-                if(vis[v]==false&&distance[v]>distance[u]+wt)
-                {
+                if(visited[v]==false&&distance[v]>distance[u]+wt){
                     distance[v]=distance[u]+wt;
                     pq.push({distance[v],v});
                 }
             }
+            
+            
+            
+            
         }
+       
         return distance;
     }
+    
+    //  priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
+        
+    //     vector<int>distance(V+1,INT_MAX);
+    //     pq.push({0,S});
+    //     distance[S]=0;
+    //     while(!pq.empty()){
+    //         int vertex=pq.top().second;
+    //         pq.pop();
+            
+    //         for(auto neighbours:adj[vertex]){
+    //             // cout<<neighbours;
+    //             int newVertex=neighbours[0];
+    //             int oldToNewVertexDist=neighbours[1];
+                
+    //             if(distance[newVertex]>distance[vertex]+oldToNewVertexDist)
+    //             {
+    //                 distance[newVertex]=distance[vertex]+oldToNewVertexDist;
+    //                 pq.push({distance[newVertex],newVertex});
+    //             }
+    //         }
+    //     }
 };
 
 
