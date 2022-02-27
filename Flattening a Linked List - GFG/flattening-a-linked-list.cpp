@@ -133,7 +133,7 @@ Node* merge(Node* root, Node* nextNode)
 
 Node *flatten(Node *root)
 {
-  if(!root||root->next==NULL)return root;
+  if(!root)return root;
   
   Node* nextNode=flatten(root->next);
   
