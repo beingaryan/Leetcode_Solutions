@@ -11,18 +11,35 @@
  */
 class Solution {
 public:
-    TreeNode* prev=NULL;
+    // TreeNode* prev=NULL;
     void flatten(TreeNode* root) 
     {
-        if(root==NULL)return;
         
-        flatten(root->right);
-        flatten(root->left);
-        root->right=prev;
-        root->left=NULL;
-        prev=root;
-        return;
+//         RECURSIVE
+//         if(root==NULL)return;
         
+//         flatten(root->right);
+//         flatten(root->left);
+//         root->right=prev;
+//         root->left=NULL;
+//         prev=root;
+//         return;
+        
+       TreeNode* curr=root;
+        
+        while(curr){
+            if(curr->left){
+                TreeNode*temp=curr->left;
+                while(temp->right){
+                    temp=temp->right;
+                }
+                temp->right=curr->right;
+                curr->right=curr->left;
+                curr->left=NULL;
+                // curr=curr->left;
+            }
+            curr=curr->right;
+        }
         
         
     }
