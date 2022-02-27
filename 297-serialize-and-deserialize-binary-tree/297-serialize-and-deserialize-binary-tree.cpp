@@ -30,7 +30,7 @@ public:
             }
             temp+=data[i];
         }
-         if(!temp.empty())q.push(temp);
+         // if(!temp.empty())q.push(temp);
             
             return desFunc(q);//,data);
     }
