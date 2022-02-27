@@ -2,35 +2,28 @@ class Solution {
 public:
     
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-      vector<vector<int>> answer;
-        vector<int>temp;
-        fun(candidates,0,target,temp,answer);
-        return answer; 
+    vector<vector<int>> temp;
+        vector<int>ans;
+        
+        fun(candidates,target,temp,ans,0,candidates.size());
+        return temp;
     }
-    
-    void fun(vector<int>& candidates,int index,int target,vector<int>temp,vector<vector<int>>&answer){
-        
-        if(index>=candidates.size()&&target==0)
-        {
-            answer.push_back(temp);
-            return ;
+    // 2+2+2
+    void fun(vector<int>& candidates,int target,vector<vector<int>>&temp,vector<int>&ans,int index,int n){
+        if(target==0){
+            temp.push_back(ans);
+            return;
         }
-      
-        if(index>=candidates.size()&&target!=0)return;
+        if(index>=n||target<0)
+            return;
         
-      
-    if(target>= candidates[index])
-      {
-        
-          temp.push_back(candidates[index]);
-          fun(candidates,index,target-candidates[index],temp,answer);
-          temp.pop_back();
-        
-      }
-        
-        fun(candidates,index+1,target,temp,answer);
+        if(candidates[index]<=target){
+            ans.push_back(candidates[index]);
+            fun(candidates,target-candidates[index],temp,ans,index,n);
+            ans.pop_back();
+        }
+            fun(candidates,target,temp,ans,index+1,n);
         return;
-        
-    }  
+    }
 };    
    
