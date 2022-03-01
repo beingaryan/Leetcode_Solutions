@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>>v;
-        vector<int>tempV;
+        
         if(nums.empty())
             return v;
         
@@ -19,11 +19,7 @@ public:
             
             while(left<right){
                 if(nums[i]+nums[left]+nums[right]==0){
-                    tempV.push_back(nums[i]);
-                    tempV.push_back(nums[left]);
-                    tempV.push_back(nums[right]);
-                    v.push_back(tempV);
-                    tempV.clear();
+                    v.push_back({nums[i],nums[left],nums[right]});
                     int lastLeft=nums[left]; int lastRight=nums[right];
                     while(left<right && nums[left]==lastLeft){
                         left++;
