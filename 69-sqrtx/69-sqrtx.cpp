@@ -12,8 +12,9 @@ public:
             if(mid*mid==num)return mid;
             
             if(mid*mid<num){
-                start=mid+1;
                 ans=mid;
+                start=mid+1;
+             
             }
             else{
                 end=mid-1;
