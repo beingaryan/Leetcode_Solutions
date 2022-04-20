@@ -9,8 +9,7 @@ public:
         int low=0;
         int high=n-1;
         int mid=-1;
-        // if(arr[0]<=arr[n-1])
-        // return arr[0];
+       int ans=-1;
         while(low<=high){
            
             mid=(high+low)/2;
