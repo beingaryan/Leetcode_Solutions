@@ -13,7 +13,7 @@ public:
         if(currAns.size()==nums.size()){
             string str;
             for(auto ele:currAns){
-                str+=ele+'0'+'#';
+                str+=ele+'#';
             }
          if(set.find(str)==set.end()){
              set.insert(str);
@@ -21,12 +21,8 @@ public:
          }
         }
         
-        // if(currIdx>=nums.size())
-        //     return;
-        
         for(int i=0;i<nums.size();i++){
-            
-            
+           
             if(state[i]==false){
                 currAns.push_back(nums[i]);
                 state[i]=true;
